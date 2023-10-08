@@ -7,9 +7,15 @@ import RecapTable from './components/RecapTable.vue'
 <template>
   <h1>Résultats du 29e Mondial d'Improvisation</h1>
 
+  <a href="https://www.fbia.be/mondial-2023/" target="_blank">Plus d'infos</a>
+
   <h2>Matchs de pool</h2>
-  <ul>
-    <MatchRow v-for="match in RESULTS.matchs_pool" :key="match.date" :match="match" />
+  <ul class="match-list">
+    <MatchRow
+      v-for="match in RESULTS.matchs_pool"
+      :key="match.team_1 + match.team_2"
+      :match="match"
+    />
   </ul>
   <p>⏰ Score après une impro supplémentaire</p>
 
@@ -24,10 +30,15 @@ import RecapTable from './components/RecapTable.vue'
 </template>
 
 <style scoped>
-ul {
+ul.match-list {
   list-style: none;
   padding: 0;
   margin: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 5px;
+  column-gap: 10px;
 }
 
 h2 {
@@ -38,6 +49,10 @@ h2 {
 @media (max-width: 600px) {
   h1 {
     font-size: 2rem;
+  }
+
+  ul.match-list {
+    grid-template-columns: 1fr;
   }
 }
 </style>

@@ -8,20 +8,24 @@
     <div class="header">
       <div>{{ match.date.replace('/2023', '') }}</div>
       <div>{{ match.place }}</div>
+      <div v-if="!hasPlayed"><a :href="ticketsUrl" target="_blank">Tickets</a></div>
     </div>
     <div class="score">
-      <div v-if="hasPlayed">
-        <span :class="{ winner: winnerShort === match.team_1 }"
-          >{{ teamDisplayName(match.team_1) }} {{ match.score_1 }}</span
-        >
-        -
-        <span :class="{ winner: winnerShort === match.team_2 }"
-          >{{ match.score_2 }} {{ teamDisplayName(match.team_2) }}</span
-        >
-      </div>
-      <div v-else>{{ teamDisplayName(match.team_1) }} - {{ teamDisplayName(match.team_2) }}</div>
-
-      <span v-if="match.overtime">⏰</span>
+      <template v-if="hasPlayed">
+        <div>
+          <span :class="{ winner: winnerShort === match.team_1 }">
+            {{ teamDisplayName(match.team_1) }} {{ match.score_1 }}
+          </span>
+          -
+          <span :class="{ winner: winnerShort === match.team_2 }">
+            {{ match.score_2 }} {{ teamDisplayName(match.team_2) }}
+          </span>
+        </div>
+        <div v-if="match.overtime">⏰</div>
+      </template>
+      <template v-else>
+        <div>{{ teamDisplayName(match.team_1) }} - {{ teamDisplayName(match.team_2) }}</div>
+      </template>
     </div>
   </li>
 </template>
@@ -31,7 +35,8 @@ import { computed } from 'vue'
 import RESULTS from '../data/results.json'
 
 function teamDisplayName(shortHand) {
-  const property = window.innerWidth < 700 ? 'emoji' : 'name'
+  // const property = window.innerWidth < 700 ? 'emoji' : 'name'
+  const property = 'emoji'
   return RESULTS.teams.find((t) => t.short === shortHand)?.[property] || shortHand
 }
 
@@ -50,6 +55,13 @@ const winColor = computed(() => {
 
   return RESULTS.teams.find((t) => t.short === winnerShort.value).color
 })
+
+const ticketsUrl = computed(() => {
+  const team1Name = RESULTS.teams.find((t) => t.short === props.match.team_1).name.replace('é', 'e')
+  const team2Name = RESULTS.teams.find((t) => t.short === props.match.team_2).name.replace('é', 'e')
+
+  return `https://www.fbia.be/billeterie/${team1Name.toLowerCase()}-vs-${team2Name.toLocaleLowerCase()}/`
+})
 </script>
 
 <style scoped>
@@ -63,16 +75,11 @@ li {
   border-radius: 25px;
 }
 
-@media (min-width: 600px) {
-  li {
-    flex-direction: row;
-    gap: 15px;
-  }
-}
-
 .header {
   display: flex;
   gap: 15px;
+
+  font-size: 0.7rem;
 }
 
 .score {
