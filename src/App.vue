@@ -18,9 +18,11 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
 </script>
 
 <template>
-  <h1>Résultats du 29e Mondial d'Improvisation</h1>
+  <img class="header-pic" aria-role="none" src="../public/dall-e-3-chibi-astro.png" />
+  <h1 class="hero-title">Classement et programme</h1>
+  <p class="hero-sub">du 29e Mondial d'Improvisation Théâtrale</p>
 
-  <a href="https://www.fbia.be/mondial-2023/" target="_blank">Plus d'infos</a>
+  <p><a href="https://www.fbia.be/mondial-2023/" target="_blank">Plus d'infos</a></p>
 
   <h2>Matchs de pool</h2>
   <ul class="match-list">
@@ -43,21 +45,44 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
     </ul>
   </div>
 
-  <h2>Finale</h2>
-
-  <ul class="match-list">
+  <div class="finale-section">
+    <h2>Finale</h2>
     <MatchRow :match="RESULTS.finale" />
-  </ul>
+  </div>
+
+  <img
+    class="footer-img"
+    aria-role="none"
+    src="../public/dall-e-3-illustration-control-room.jpeg"
+  />
+  <p class="footer-text">Maintenu par Thomas Chapeaux<br />Illustrations par Dall-E 3</p>
 </template>
 
 <style scoped>
+.header-pic {
+  position: absolute;
+  width: 150px;
+  right: 20px;
+}
+
+h1.hero-title {
+  font-size: 2rem;
+  /* leave room for header pic */
+  width: calc(100% - 150px);
+}
+
+.hero-sub {
+  /* leave room for header pic */
+  width: calc(100% - 150px);
+}
+
 ul.match-list {
   list-style: none;
   padding: 0;
   margin: 0;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   row-gap: 5px;
   column-gap: 10px;
 }
@@ -83,13 +108,34 @@ h2 {
   margin: 10px 0;
 }
 
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2rem;
-  }
-
+@media (min-width: 600px) {
   ul.match-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
+}
+
+@media (min-width: 900px) {
+  ul.match-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.finale-section {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-img {
+  width: 100%;
+  max-width: 400px;
+  align-self: center;
+}
+
+.footer-text {
+  font-size: 0.7rem;
+  width: 100%;
+  text-align: center;
 }
 </style>

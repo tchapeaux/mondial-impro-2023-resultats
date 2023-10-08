@@ -76,7 +76,7 @@ li {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  background-color: #444444;
+  background-color: var(--dark-secondary);
   border-radius: 25px;
 }
 

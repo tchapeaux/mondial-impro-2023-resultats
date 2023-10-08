@@ -1,7 +1,9 @@
 /* semantic color variables for this project */
 :root {
   --color-text: white;
-  --color-background: #333333;
+  --color-background: #05142b;
+  --dark-secondary: #0f344e;
+  --light-secondary: #86c9d1;
 }
 
 *,

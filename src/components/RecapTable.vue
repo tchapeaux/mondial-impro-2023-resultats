@@ -85,6 +85,14 @@ td:first-child {
   text-align: left;
 }
 
+td:last-child {
+  font-weight: 900;
+}
+
+th:last-child {
+  font-weight: 900;
+}
+
 .row-name {
   margin-left: 10px;
 }
@@ -96,7 +104,6 @@ td:first-child {
 }
 
 table.recap-scores {
-  font-weight: 700;
   font-size: 1.2rem;
 }
 
@@ -105,16 +112,12 @@ table.recap-scores tr {
 }
 
 table.recap-scores tr:nth-child(even) {
-  background-color: #444;
-}
-
-.recap-scores th {
-  padding: 10px 0;
+  background-color: var(--dark-secondary);
 }
 
 .recap-scores th,
 .recap-scores td {
   padding: 10px;
-  border: 1px solid #888;
+  border: 1px solid var(--light-secondary);
 }
 </style>
