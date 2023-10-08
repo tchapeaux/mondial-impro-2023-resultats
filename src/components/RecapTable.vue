@@ -103,10 +103,6 @@ th:last-child {
   }
 }
 
-table.recap-scores {
-  font-size: 1.2rem;
-}
-
 table.recap-scores tr {
   text-align: center;
 }
@@ -117,7 +113,14 @@ table.recap-scores tr:nth-child(even) {
 
 .recap-scores th,
 .recap-scores td {
-  padding: 10px;
+  padding: 5px;
   border: 1px solid var(--light-secondary);
+}
+
+@media (min-width: 600px) {
+  .recap-scores th,
+  .recap-scores td {
+    padding: 10px;
+  }
 }
 </style>

@@ -18,7 +18,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
 </script>
 
 <template>
-  <img class="header-pic" aria-role="none" src="../public/dall-e-3-chibi-astro.png" />
+  <img class="header-pic" aria-role="none" src="/dall-e-3-chibi-astro.png" />
   <h1 class="hero-title">Classement et programme</h1>
   <p class="hero-sub">du 29e Mondial d'Improvisation Théâtrale</p>
 
@@ -50,11 +50,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
     <MatchRow :match="RESULTS.finale" />
   </div>
 
-  <img
-    class="footer-img"
-    aria-role="none"
-    src="../public/dall-e-3-illustration-control-room.jpeg"
-  />
+  <img class="footer-img" aria-role="none" src="/dall-e-3-illustration-control-room.jpeg" />
   <p class="footer-text">Maintenu par Thomas Chapeaux<br />Illustrations par Dall-E 3</p>
 </template>
 
