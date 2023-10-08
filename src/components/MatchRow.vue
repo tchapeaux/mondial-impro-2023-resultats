@@ -57,6 +57,11 @@ const winColor = computed(() => {
 })
 
 const ticketsUrl = computed(() => {
+  if (props.match.date.includes('28')) {
+    // Finale
+    return 'https://www.fbia.be/billetterie/la-finale/'
+  }
+
   const team1Name = RESULTS.teams.find((t) => t.short === props.match.team_1).name.replace('é', 'e')
   const team2Name = RESULTS.teams.find((t) => t.short === props.match.team_2).name.replace('é', 'e')
 

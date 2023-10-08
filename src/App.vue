@@ -8,7 +8,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
   RESULTS.matchs_pool.forEach((m) => {
     m.score_1 = Math.round(8 + Math.random() * 8)
     m.score_2 = Math.round(8 + Math.random() * 8)
-    m.overtime = Math.random() > 0.8
+    m.overtime = Math.random() > 0.6
   })
 }
 </script>
@@ -29,12 +29,20 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
   <p>⏰ Score après une impro supplémentaire</p>
 
   <h2>Tableau récapitulatif</h2>
-  <RecapTable :results="RESULTS" />
-  <ul>
-    <li>0 = perdu dans le temps règlementaire</li>
-    <li>1 = perdu après une impro supplémentaire</li>
-    <li>3 = gagné après une impro supplémentaire</li>
-    <li>4 = gagné dans le temps règlementaire</li>
+  <div class="recap-table">
+    <RecapTable :results="RESULTS" />
+    <ul>
+      <li>0 = perdu dans le temps règlementaire</li>
+      <li>1 = perdu après une impro supplémentaire</li>
+      <li>3 = gagné après une impro supplémentaire</li>
+      <li>4 = gagné dans le temps règlementaire</li>
+    </ul>
+  </div>
+
+  <h2>Finale</h2>
+
+  <ul class="match-list">
+    <MatchRow :match="RESULTS.finale" />
   </ul>
 </template>
 
@@ -53,6 +61,17 @@ ul.match-list {
 h2 {
   line-height: 1.5;
   padding: 10px 0;
+}
+
+.recap-table {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recap-table ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
 }
 
 @media (max-width: 600px) {
