@@ -3,7 +3,7 @@
     <tr>
       <th></th>
       <th
-        v-for="t in RESULTS.teams"
+        v-for="t in results.teams"
         :key="t.short"
         :style="{ backgroundColor: t.color, color: 'black' }"
       >
@@ -11,12 +11,12 @@
       </th>
       <th>Total</th>
     </tr>
-    <tr v-for="t in RESULTS.teams" :key="t.short">
+    <tr v-for="t in results.teams" :key="t.short">
       <td :style="{ backgroundColor: t.color, color: 'black' }">
         <span>{{ t.emoji }}</span>
         <span class="row-name">{{ t.name }}</span>
       </td>
-      <td v-for="t2 in RESULTS.teams" :key="t2.short">
+      <td v-for="t2 in results.teams" :key="t2.short">
         <span v-if="t === t2">/</span>
         <span v-else>{{ scoreTable[t.short][t2.short] }}</span>
       </td>
@@ -27,7 +27,8 @@
 
 <script setup>
 import { computed } from 'vue'
-import RESULTS from '../data/results.json'
+
+const props = defineProps({ results: { type: Object, required: true } })
 
 function getMatchScores(match) {
   const winner = match.score_1 > match.score_2 ? match.team_1 : match.team_2
@@ -39,15 +40,15 @@ function getMatchScores(match) {
 const scoreTable = computed(() => {
   const scores = {}
 
-  RESULTS.teams.forEach((t) => {
+  props.results.teams.forEach((t) => {
     const teamScore = {}
 
-    RESULTS.teams.forEach((t2) => {
+    props.results.teams.forEach((t2) => {
       if (t === t2) {
         return
       }
 
-      const match = RESULTS.matchs_pool.find(
+      const match = props.results.matchs_pool.find(
         (m) =>
           (m.team_1 === t.short && m.team_2 === t2.short) ||
           (m.team_1 === t2.short && m.team_2 === t.short)

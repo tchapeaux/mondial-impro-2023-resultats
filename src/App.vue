@@ -2,6 +2,15 @@
 import RESULTS from './data/results.json'
 import MatchRow from './components/MatchRow.vue'
 import RecapTable from './components/RecapTable.vue'
+
+// Check for "fake-data" cheat code
+if (new URLSearchParams(window.location.search).get('fakeData')) {
+  RESULTS.matchs_pool.forEach((m) => {
+    m.score_1 = Math.round(8 + Math.random() * 8)
+    m.score_2 = Math.round(8 + Math.random() * 8)
+    m.overtime = Math.random() > 0.8
+  })
+}
 </script>
 
 <template>
@@ -20,7 +29,7 @@ import RecapTable from './components/RecapTable.vue'
   <p>⏰ Score après une impro supplémentaire</p>
 
   <h2>Tableau récapitulatif</h2>
-  <RecapTable />
+  <RecapTable :results="RESULTS" />
   <ul>
     <li>0 = perdu dans le temps règlementaire</li>
     <li>1 = perdu après une impro supplémentaire</li>
