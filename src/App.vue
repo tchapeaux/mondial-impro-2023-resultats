@@ -8,6 +8,10 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
   RESULTS.matchs_pool.forEach((m) => {
     m.score_1 = Math.round(8 + Math.random() * 8)
     m.score_2 = Math.round(8 + Math.random() * 8)
+    if (m.score_2 === m.score_1) {
+      // hack 🤫
+      m.score_2++
+    }
     m.overtime = Math.random() > 0.6
   })
 }
@@ -26,7 +30,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
       :match="match"
     />
   </ul>
-  <p>⏰ Score après une impro supplémentaire</p>
+  <p class="small">⏰ Score après une impro supplémentaire</p>
 
   <h2>Tableau récapitulatif</h2>
   <div class="recap-table">
@@ -63,9 +67,14 @@ h2 {
   padding: 10px 0;
 }
 
+.small {
+  font-size: 0.8rem;
+}
+
 .recap-table {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .recap-table ul {
