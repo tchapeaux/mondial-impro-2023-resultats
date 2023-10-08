@@ -1,0 +1,100 @@
+{
+  "teams": [
+    {
+      "short": "BE",
+      "emoji": "🇧🇪",
+      "name": "Belgique",
+      "color": "#fcfc99"
+    },
+    {
+      "short": "FR",
+      "emoji": "🇫🇷",
+      "name": "France",
+      "color": "#ffffff"
+    },
+    {
+      "short": "LU",
+      "emoji": "🇱🇺",
+      "name": "Luxembourg",
+      "color": "#79de79"
+    },
+    {
+      "short": "QE",
+      "emoji": "⚜️",
+      "name": "Québec",
+      "color": "#a8e4ef"
+    },
+    {
+      "short": "CH",
+      "emoji": "🇨🇭",
+      "name": "Suisse",
+      "color": "#ff7777"
+    }
+  ],
+  "matchs_pool": [
+    {
+      "date": "19/10/2023",
+      "place": "CC Uccle",
+      "team_1": "BE",
+      "team_2": "LU"
+    },
+    {
+      "date": "20/10/2023",
+      "place": "Espace Lumen",
+      "team_1": "QE",
+      "team_2": "FR"
+    },
+    {
+      "date": "21/10/2023",
+      "place": "SPOTT, LLN",
+      "team_1": "BE",
+      "team_2": "CH"
+    },
+    {
+      "date": "22/10/2023",
+      "place": "CC Libramont",
+      "team_1": "LU",
+      "team_2": "QE"
+    },
+    {
+      "date": "22/10/2023",
+      "place": "CC Libramont",
+      "team_1": "CH",
+      "team_2": "FR"
+    },
+    {
+      "date": "23/10/2023",
+      "place": "Wolubilis",
+      "team_1": "FR",
+      "team_2": "BE"
+    },
+    {
+      "date": "24/10/2023",
+      "place": "Espace Lumen",
+      "team_1": "QE",
+      "team_2": "CH"
+    },
+    {
+      "date": "25/10/2023",
+      "place": "Université de Namur",
+      "team_1": "LU",
+      "team_2": "FR"
+    },
+    {
+      "date": "26/10/2023",
+      "place": "La Sucrerie, Wavre",
+      "team_1": "BE",
+      "team_2": "QE"
+    },
+    {
+      "date": "27/10/2023",
+      "place": "CC Auderghem",
+      "team_1": "CH",
+      "team_2": "LU"
+    }
+  ],
+  "finale": {
+    "date": "28/10/2023",
+    "place": "Université Libre de Bruxelles"
+  }
+}
