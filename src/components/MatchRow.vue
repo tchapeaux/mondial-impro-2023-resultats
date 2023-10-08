@@ -12,14 +12,16 @@
     </div>
     <div class="score">
       <template v-if="hasPlayed">
-        <div>
+        <div class="small-score">
+          <TeamFlag :team="team_1" />
           <span :class="{ winner: winnerShort === match.team_1 }">
-            <TeamFlag :team="team_1" /> {{ match.score_1 }}
+            {{ match.score_1 }}
           </span>
           -
           <span :class="{ winner: winnerShort === match.team_2 }">
-            {{ match.score_2 }} <TeamFlag :team="team_2" />
+            {{ match.score_2 }}
           </span>
+          <TeamFlag :team="team_2" />
         </div>
         <div
           class="overtime"
@@ -32,7 +34,7 @@
         </div>
       </template>
       <template v-else>
-        <div><TeamFlag :team="team_1" /> - <TeamFlag :team="team_2" /></div>
+        <div class="small-score"><TeamFlag :team="team_1" /> - <TeamFlag :team="team_2" /></div>
       </template>
     </div>
   </li>
@@ -113,7 +115,20 @@ li {
   align-items: center;
 }
 
+.small-score {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .overtime {
+  height: 2rem;
+  width: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   padding: 5px;
   border-radius: 50%;
 }

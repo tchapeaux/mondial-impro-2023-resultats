@@ -9,6 +9,6 @@ defineProps({ team: { type: Object, defaut: {} } })
 
 <style scoped>
 img {
-  width: 1rem;
+  width: 1.5rem;
 }
 </style>
