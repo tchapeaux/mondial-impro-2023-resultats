@@ -37,7 +37,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
   <h2>Tableau récapitulatif</h2>
   <div class="recap-table">
     <RecapTable :results="RESULTS" />
-    <ul>
+    <ul class="small">
       <li>0 = perdu dans le temps règlementaire</li>
       <li>1 = perdu après une impro supplémentaire</li>
       <li>3 = gagné après une impro supplémentaire</li>
@@ -46,12 +46,12 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
   </div>
 
   <div class="finale-section">
-    <h2>Finale</h2>
+    <h2>🏆 Finale 🏆</h2>
     <MatchRow :match="RESULTS.finale" />
   </div>
 
   <img class="footer-img" aria-role="none" src="/dall-e-3-illustration-control-room.jpeg" />
-  <p class="footer-text">Maintenu par Thomas Chapeaux<br />Illustrations par Dall-E 3</p>
+  <p class="footer-text">Maintenu par Thomas Chapeaux<br />Illustrations par Dall·E 3</p>
 </template>
 
 <style scoped>
@@ -96,6 +96,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  align-items: flex-end;
 }
 
 .recap-table ul {
