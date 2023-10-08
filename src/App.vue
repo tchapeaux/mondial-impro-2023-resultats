@@ -38,7 +38,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
       :match="match"
     />
   </ul>
-  <p class="small">⏰ = impro supplémentaire</p>
+  <p v-if="RESULTS.matchs_pool.some((m) => m.overtime)" class="small">⏰ = impro supplémentaire</p>
 
   <h2>Tableau récapitulatif</h2>
   <div class="recap-table">
