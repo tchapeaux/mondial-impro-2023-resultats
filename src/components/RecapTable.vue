@@ -7,12 +7,12 @@
         :key="t.short"
         :style="{ backgroundColor: t.color, color: 'black' }"
       >
-        {{ t.name }}
+        {{ getName(t) }}
       </th>
       <th>Total</th>
     </tr>
     <tr v-for="t in RESULTS.teams" :key="t.short">
-      <td :style="{ backgroundColor: t.color, color: 'black' }">{{ t.name }}</td>
+      <td :style="{ backgroundColor: t.color, color: 'black' }">{{ getName(t) }}</td>
       <td v-for="t2 in RESULTS.teams" :key="t2.short">
         <span v-if="t === t2">/</span>
         <span v-else>{{ scoreTable[t.short][t2.short] }}</span>
@@ -25,6 +25,10 @@
 <script setup>
 import { computed } from 'vue'
 import RESULTS from '../data/results.json'
+
+function getName(team) {
+  return window.innerWidth < 700 ? team.emoji : team.name
+}
 
 function getMatchScores(match) {
   const winner = match.score_1 > match.score_2 ? match.team_1 : match.team_2
@@ -92,7 +96,6 @@ table.recap-scores tr:nth-child(even) {
 
 .recap-scores th {
   padding: 10px 0;
-  width: 130px;
 }
 
 .recap-scores th,

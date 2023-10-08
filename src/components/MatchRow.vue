@@ -5,13 +5,24 @@
       color: hasPlayed ? 'black' : undefined
     }"
   >
-    <div>{{ match.date }}</div>
-    <div>{{ match.place }}</div>
-    <div>{{ teamDisplayName(match.team_1) }} - {{ teamDisplayName(match.team_2) }}</div>
-    <div v-if="hasPlayed">
-      {{ match.score_1 }} - {{ match.score_2 }} <span v-if="match.overtime">⏰</span>
+    <div class="header">
+      <div>{{ match.date.replace('/2023', '') }}</div>
+      <div>{{ match.place }}</div>
     </div>
-    <div v-if="hasPlayed">🏆 {{ teamDisplayName(winnerShort) }}</div>
+    <div class="score">
+      <div v-if="hasPlayed">
+        <span :class="{ winner: winnerShort === match.team_1 }"
+          >{{ teamDisplayName(match.team_1) }} {{ match.score_1 }}</span
+        >
+        -
+        <span :class="{ winner: winnerShort === match.team_2 }"
+          >{{ match.score_2 }} {{ teamDisplayName(match.team_2) }}</span
+        >
+      </div>
+      <div v-else>{{ teamDisplayName(match.team_1) }} - {{ teamDisplayName(match.team_2) }}</div>
+
+      <span v-if="match.overtime">⏰</span>
+    </div>
   </li>
 </template>
 
@@ -20,7 +31,7 @@ import { computed } from 'vue'
 import RESULTS from '../data/results.json'
 
 function teamDisplayName(shortHand) {
-  const property = window.innerWidth < 500 ? 'emoji' : 'name'
+  const property = window.innerWidth < 700 ? 'emoji' : 'name'
   return RESULTS.teams.find((t) => t.short === shortHand)?.[property] || shortHand
 }
 
@@ -45,10 +56,32 @@ const winColor = computed(() => {
 li {
   padding: 15px;
   margin: 5px 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   background-color: #444444;
   border-radius: 25px;
+}
+
+@media (min-width: 600px) {
+  li {
+    flex-direction: row;
+    gap: 15px;
+  }
+}
+
+.header {
+  display: flex;
+  gap: 15px;
+}
+
+.score {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.winner {
+  font-weight: 900;
 }
 </style>
