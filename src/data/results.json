@@ -2,31 +2,31 @@
   "teams": [
     {
       "short": "BE",
-      "emoji": "🇧🇪",
+      "flag": "/flags/be.svg",
       "name": "Belgique",
       "color": "#fcfc99"
     },
     {
       "short": "FR",
-      "emoji": "🇫🇷",
+      "flag": "/flags/fr.svg",
       "name": "France",
       "color": "#ffffff"
     },
     {
       "short": "LU",
-      "emoji": "🇱🇺",
+      "flag": "/flags/lu.svg",
       "name": "Luxembourg",
       "color": "#79de79"
     },
     {
       "short": "QE",
-      "emoji": "⚜️",
+      "flag": "/flags/ca-qc.svg",
       "name": "Québec",
       "color": "#a8e4ef"
     },
     {
       "short": "CH",
-      "emoji": "🇨🇭",
+      "flag": "/flags/ch.svg",
       "name": "Suisse",
       "color": "#ff7777"
     }

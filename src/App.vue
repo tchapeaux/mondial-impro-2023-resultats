@@ -2,6 +2,7 @@
 import RESULTS from './data/results.json'
 import MatchRow from './components/MatchRow.vue'
 import RecapTable from './components/RecapTable.vue'
+import TeamCard from './components/TeamCard.vue'
 
 // Check for "fake-data" cheat code
 if (new URLSearchParams(window.location.search).get('fakeData')) {
@@ -23,6 +24,11 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
   <p class="hero-sub">du 29e Mondial d'Improvisation Théâtrale</p>
 
   <p><a href="https://www.fbia.be/mondial-2023/" target="_blank">Plus d'infos</a></p>
+
+  <h2>Equipes</h2>
+  <ul class="teams-list">
+    <TeamCard v-for="t in RESULTS.teams" :key="t.short" :team="t" />
+  </ul>
 
   <h2>Matchs de pool</h2>
   <ul class="match-list">
@@ -103,6 +109,16 @@ h2 {
   list-style: none;
   padding: 0;
   margin: 10px 0;
+}
+
+ul.teams-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 @media (min-width: 600px) {

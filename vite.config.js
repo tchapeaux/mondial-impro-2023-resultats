@@ -12,7 +12,10 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
-      workbox: { globPatterns: ['**/*.{js,vue,css,html,png,json}'], cleanupOutdatedCaches: true },
+      workbox: {
+        globPatterns: ['**/*.{js,vue,css,html,png,json,svg}'],
+        cleanupOutdatedCaches: true
+      },
       manifest: {
         name: "29e Mondial d'Improvisation",
         short_name: 'Mondial 29',

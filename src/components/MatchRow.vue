@@ -14,39 +14,50 @@
       <template v-if="hasPlayed">
         <div>
           <span :class="{ winner: winnerShort === match.team_1 }">
-            {{ teamDisplayName(match.team_1) }} {{ match.score_1 }}
+            <TeamFlag :team="team_1" /> {{ match.score_1 }}
           </span>
           -
           <span :class="{ winner: winnerShort === match.team_2 }">
-            {{ match.score_2 }} {{ teamDisplayName(match.team_2) }}
+            {{ match.score_2 }} <TeamFlag :team="team_2" />
           </span>
         </div>
-        <div v-if="match.overtime">⏰</div>
+        <div
+          class="overtime"
+          v-if="match.overtime"
+          :style="{
+            backgroundColor: loserColor
+          }"
+        >
+          ⏰
+        </div>
       </template>
       <template v-else>
-        <div>{{ teamDisplayName(match.team_1) }} - {{ teamDisplayName(match.team_2) }}</div>
+        <div><TeamFlag :team="team_1" /> - <TeamFlag :team="team_2" /></div>
       </template>
     </div>
   </li>
 </template>
 
 <script setup>
+import TeamFlag from './TeamFlag.vue'
+
 import { computed } from 'vue'
 import RESULTS from '../data/results.json'
-
-function teamDisplayName(shortHand) {
-  // const property = window.innerWidth < 700 ? 'emoji' : 'name'
-  const property = 'emoji'
-  return RESULTS.teams.find((t) => t.short === shortHand)?.[property] || shortHand
-}
 
 const props = defineProps({
   match: { type: Object, required: true }
 })
 
 const hasPlayed = computed(() => typeof props.match.score_1 === 'number')
+
+const team_1 = computed(() => RESULTS.teams.find((t) => t.short === props.match.team_1))
+const team_2 = computed(() => RESULTS.teams.find((t) => t.short === props.match.team_2))
+
 const winnerShort = computed(() =>
   props.match.score_1 > props.match.score_2 ? props.match.team_1 : props.match.team_2
+)
+const loserShort = computed(() =>
+  props.match.score_1 > props.match.score_2 ? props.match.team_2 : props.match.team_1
 )
 const winColor = computed(() => {
   if (!hasPlayed.value) {
@@ -54,6 +65,13 @@ const winColor = computed(() => {
   }
 
   return RESULTS.teams.find((t) => t.short === winnerShort.value).color
+})
+const loserColor = computed(() => {
+  if (!hasPlayed.value) {
+    return null
+  }
+
+  return RESULTS.teams.find((t) => t.short === loserShort.value).color
 })
 
 const ticketsUrl = computed(() => {
@@ -91,6 +109,13 @@ li {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+
+  align-items: center;
+}
+
+.overtime {
+  padding: 5px;
+  border-radius: 50%;
 }
 
 .winner {

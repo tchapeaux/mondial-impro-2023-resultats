@@ -7,13 +7,13 @@
         :key="t.short"
         :style="{ backgroundColor: t.color, color: 'black' }"
       >
-        {{ t.emoji }}
+        <TeamFlag :team="t" />
       </th>
       <th>Total</th>
     </tr>
     <tr v-for="t in results.teams" :key="t.short">
       <td :style="{ backgroundColor: t.color, color: 'black' }">
-        <span>{{ t.emoji }}</span>
+        <span><TeamFlag :team="t" /></span>
         <span class="row-name">{{ t.name }}</span>
       </td>
       <td v-for="t2 in results.teams" :key="t2.short">
@@ -27,6 +27,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import TeamFlag from './TeamFlag.vue'
 
 const props = defineProps({ results: { type: Object, required: true } })
 
@@ -94,7 +95,7 @@ th:last-child {
 }
 
 .row-name {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 @media (max-width: 600px) {
