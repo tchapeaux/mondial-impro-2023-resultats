@@ -32,7 +32,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
       :match="match"
     />
   </ul>
-  <p class="small">⏰ Score après une impro supplémentaire</p>
+  <p class="small">⏰ = impro supplémentaire</p>
 
   <h2>Tableau récapitulatif</h2>
   <div class="recap-table">
@@ -66,14 +66,14 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
 }
 
 h1.hero-title {
-  font-size: 2rem;
+  font-size: 1.9rem;
   /* leave room for header pic */
-  width: calc(100% - 150px);
+  width: calc(100% - 120px);
 }
 
 .hero-sub {
   /* leave room for header pic */
-  width: calc(100% - 150px);
+  width: calc(100% - 120px);
 }
 
 ul.match-list {
