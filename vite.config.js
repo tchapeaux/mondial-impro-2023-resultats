@@ -17,9 +17,9 @@ export default defineConfig({
         cleanupOutdatedCaches: true
       },
       manifest: {
-        name: "29e Mondial d'Improvisation",
+        name: "29e Mondial d'Impro",
         short_name: 'Mondial 29',
-        description: "Programme et Classement du 29e Mondial d'Improvisation",
+        description: "Programme et Classement du 29e Mondial d'Impro",
         theme_color: '#86c9d1',
         background_color: '#05142b',
         display: 'standalone',
