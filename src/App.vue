@@ -20,12 +20,12 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
 
 <template>
   <img class="header-pic" aria-role="none" src="/dall-e-3-chibi-astro.png" />
-  <h1 class="hero-title">Classement et programme</h1>
+  <h1 class="hero-title">Récap</h1>
   <p class="hero-sub">du 29e Mondial d'Improvisation Théâtrale</p>
 
   <p><a href="https://www.fbia.be/mondial-2023/" target="_blank">Plus d'infos</a></p>
 
-  <h2>Equipes</h2>
+  <h2>Équipes</h2>
   <ul class="teams-list">
     <TeamCard v-for="t in RESULTS.teams" :key="t.short" :team="t" />
   </ul>
@@ -40,7 +40,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
   </ul>
   <p v-if="RESULTS.matchs_pool.some((m) => m.overtime)" class="small">⏰ = impro supplémentaire</p>
 
-  <h2>Tableau récapitulatif</h2>
+  <h2>Tableau des scores</h2>
   <div class="recap-table">
     <RecapTable :results="RESULTS" />
     <ul class="small">
