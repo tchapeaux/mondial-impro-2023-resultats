@@ -79,7 +79,13 @@ function closeScoreHint() {
   </div>
 
   <img class="footer-img" aria-role="none" src="/dall-e-3-illustration-control-room.jpeg" />
-  <p class="footer-text">Maintenu par Thomas Chapeaux<br />Illustrations par Dall·E 3</p>
+  <footer class="footer-text">
+    <p>Maintenu par Thomas Chapeaux</p>
+    <p>
+      29e Mondial d'Impro organisé par <a href="https://www.fbia.be" target="_blank">la FBIA</a>
+    </p>
+    <p>Illustrations par Dall·E 3</p>
+  </footer>
 </template>
 
 <style scoped>
