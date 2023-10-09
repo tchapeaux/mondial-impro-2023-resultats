@@ -4,31 +4,31 @@
       "short": "BE",
       "flag": "/flags/be.svg",
       "name": "Belgique",
-      "color": "#fcfc99"
+      "color": "#FFF59D"
     },
     {
       "short": "FR",
       "flag": "/flags/fr.svg",
       "name": "France",
-      "color": "#ffffff"
+      "color": "#EEEEEE"
     },
     {
       "short": "LU",
       "flag": "/flags/lu.svg",
       "name": "Luxembourg",
-      "color": "#79de79"
+      "color": "#A5D6A7"
     },
     {
       "short": "QE",
       "flag": "/flags/ca-qc.svg",
       "name": "Québec",
-      "color": "#a8e4ef"
+      "color": "#80DEEA"
     },
     {
       "short": "CH",
       "flag": "/flags/ch.svg",
       "name": "Suisse",
-      "color": "#ff7777"
+      "color": "#EF9A9A"
     }
   ],
   "matchs_pool": [
