@@ -19,6 +19,14 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
     m.overtime = Math.random() > 0.6
   })
 }
+
+function openScoreHint() {
+  document.querySelector('#score-explications').showModal()
+}
+
+function closeScoreHint() {
+  document.querySelector('#score-explications').close()
+}
 </script>
 
 <template>
@@ -26,7 +34,9 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
   <h1 class="hero-title">Récap</h1>
   <p class="hero-sub">du 29e Mondial d'Impro</p>
 
-  <p><a href="https://www.fbia.be/mondial-2023/" target="_blank">Plus d'infos</a></p>
+  <p>
+    <a href="https://www.fbia.be/mondial-2023/" target="_blank">Plus d'infos</a>
+  </p>
 
   <h2>Équipes</h2>
   <ul class="teams-list">
@@ -43,15 +53,24 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
     />
   </ul>
 
-  <h2>Tableau des scores</h2>
+  <h2 class="header-with-tooltip">
+    Tableau des scores
+    <button class="tooltip" @click="openScoreHint">?</button>
+    <dialog id="score-explications">
+      <div class="content">
+        <h3>Scores de match</h3>
+        <ul class="small">
+          <li>0 = perdu dans le temps règlementaire</li>
+          <li>1 = perdu après une impro supplémentaire</li>
+          <li>3 = gagné après une impro supplémentaire</li>
+          <li>4 = gagné dans le temps règlementaire</li>
+        </ul>
+        <button @click="closeScoreHint">Fermer</button>
+      </div>
+    </dialog>
+  </h2>
   <div class="recap-table">
     <RecapTable :results="RESULTS" />
-    <ul class="small">
-      <li>0 = perdu dans le temps règlementaire</li>
-      <li>1 = perdu après une impro supplémentaire</li>
-      <li>3 = gagné après une impro supplémentaire</li>
-      <li>4 = gagné dans le temps règlementaire</li>
-    </ul>
   </div>
 
   <div class="finale-section">
@@ -99,6 +118,73 @@ h2 {
 
 .small {
   font-size: 0.8rem;
+}
+
+.header-with-tooltip {
+  display: flex;
+  align-items: baseline;
+}
+
+.tooltip {
+  padding: 2px;
+  margin: 2px;
+  margin-left: 10px;
+  border-radius: 50%;
+  background: var(--color-background);
+  color: var(--color-text);
+
+  border: var(--color-text) 3px solid;
+
+  font-size: 1rem;
+  font-weight: 900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+
+  cursor: pointer;
+}
+
+.tooltip:hover {
+  background-color: var(--color-text);
+  color: var(--color-background);
+}
+
+dialog {
+  margin: auto;
+}
+
+#score-explications {
+  background-color: var(--dark-secondary);
+  color: var(--color-text);
+
+  border-color: var(--light-secondary);
+  border-radius: 15px;
+}
+
+#score-explications .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+#score-explications button {
+  border: 0;
+  background-color: var(--light-secondary);
+  color: var(--color-background);
+  padding: 5px 10px;
+  border-radius: 25px;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+#score-explications ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .recap-table {
