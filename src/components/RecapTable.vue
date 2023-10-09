@@ -114,6 +114,10 @@ th:last-child {
   }
 }
 
+table.recap-scores {
+  border-collapse: collapse;
+}
+
 table.recap-scores tr {
   text-align: center;
 }
