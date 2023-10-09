@@ -26,6 +26,7 @@
         <div
           class="overtime"
           v-if="match.overtime"
+          title="Impro supplémentaire"
           :style="{
             backgroundColor: loserColor
           }"
