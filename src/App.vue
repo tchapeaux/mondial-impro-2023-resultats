@@ -24,7 +24,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
 <template>
   <img class="header-pic" aria-role="none" src="/dall-e-3-chibi-astro.png" />
   <h1 class="hero-title">Récap</h1>
-  <p class="hero-sub">du 29e Mondial d'Improvisation Théâtrale</p>
+  <p class="hero-sub">du 29e Mondial d'Impro</p>
 
   <p><a href="https://www.fbia.be/mondial-2023/" target="_blank">Plus d'infos</a></p>
 
