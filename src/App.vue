@@ -43,7 +43,7 @@ function closeScoreHint() {
     <TeamCard v-for="t in RESULTS.teams" :key="t.short" :team="t" />
   </ul>
 
-  <h2>Matchs de pool</h2>
+  <h2>Matchs de poule</h2>
   <p v-if="RESULTS.matchs_pool.some((m) => m.overtime)" class="small">⏰ = impro supplémentaire</p>
   <ul class="match-list">
     <MatchRow
