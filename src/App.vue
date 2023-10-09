@@ -6,7 +6,10 @@ import TeamCard from './components/TeamCard.vue'
 
 // Check for "fake-data" cheat code
 if (new URLSearchParams(window.location.search).get('fakeData')) {
-  RESULTS.matchs_pool.forEach((m) => {
+  RESULTS.matchs_pool.forEach((m, idx) => {
+    if (idx >= 6) {
+      return
+    }
     m.score_1 = Math.round(8 + Math.random() * 8)
     m.score_2 = Math.round(8 + Math.random() * 8)
     if (m.score_2 === m.score_1) {
@@ -31,6 +34,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
   </ul>
 
   <h2>Matchs de pool</h2>
+  <p v-if="RESULTS.matchs_pool.some((m) => m.overtime)" class="small">⏰ = impro supplémentaire</p>
   <ul class="match-list">
     <MatchRow
       v-for="match in RESULTS.matchs_pool"
@@ -38,7 +42,6 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
       :match="match"
     />
   </ul>
-  <p v-if="RESULTS.matchs_pool.some((m) => m.overtime)" class="small">⏰ = impro supplémentaire</p>
 
   <h2>Tableau des scores</h2>
   <div class="recap-table">
