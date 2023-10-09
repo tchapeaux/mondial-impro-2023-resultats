@@ -11,4 +11,10 @@ defineProps({ team: { type: Object, defaut: {} } })
 img {
   width: 1.5rem;
 }
+
+@media (min-width: 600px) {
+  img {
+    width: 2rem;
+  }
+}
 </style>

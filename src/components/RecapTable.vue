@@ -7,14 +7,18 @@
         :key="t.short"
         :style="{ backgroundColor: t.color, color: 'black' }"
       >
-        <TeamFlag :team="t" />
+        <div class="flag">
+          <TeamFlag :team="t" />
+        </div>
       </th>
       <th>Total</th>
     </tr>
     <tr v-for="t in results.teams" :key="t.short">
       <td :style="{ backgroundColor: t.color, color: 'black' }">
-        <span><TeamFlag :team="t" /></span>
-        <span class="row-name">{{ t.name }}</span>
+        <div class="flag">
+          <TeamFlag :team="t" />
+          <span class="row-name">{{ t.name }}</span>
+        </div>
       </td>
       <td v-for="t2 in results.teams" :key="t2.short">
         <span v-if="t === t2">/</span>
@@ -92,6 +96,12 @@ td:last-child {
 
 th:last-child {
   font-weight: 900;
+}
+
+.flag {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .row-name {
