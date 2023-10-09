@@ -1,5 +1,5 @@
 <template>
-  <img v-if="team" :src="team.flag" />
+  <img v-if="team" :alt="team.name" :src="team.flag" :title="team.name" />
   <span v-else>??</span>
 </template>
 
