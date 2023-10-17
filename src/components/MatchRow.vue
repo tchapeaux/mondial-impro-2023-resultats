@@ -83,6 +83,11 @@ const ticketsUrl = computed(() => {
     return 'https://www.fbia.be/billetterie/la-finale/'
   }
 
+  if (props.match.date.includes('27')) {
+    // Special case for some reason
+    return 'https://www.fbia.be/billetterie/514/'
+  }
+
   const team1Name = RESULTS.teams.find((t) => t.short === props.match.team_1).name.replace('é', 'e')
   const team2Name = RESULTS.teams.find((t) => t.short === props.match.team_2).name.replace('é', 'e')
 
