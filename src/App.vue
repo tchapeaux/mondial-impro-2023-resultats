@@ -16,6 +16,7 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
       // hack 🤫
       m.score_2++
     }
+    m.article_url = 'https://media.giphy.com/media/ZD8ZjehSsLDZQRKJjJ/giphy.gif'
     m.overtime = Math.random() > 0.6
   })
 }

@@ -8,12 +8,15 @@
     <div class="header">
       <div>{{ match.date.replace('/2023', '') }}</div>
       <div>{{ match.place }}</div>
-      <template v-if="!hasPlayed">
-        <div class="spacer" />
-        <div class="tickets">
-          <a :href="ticketsUrl" target="_blank">Tickets</a>
-        </div>
-      </template>
+      <div class="spacer" />
+      <a v-if="!hasPlayed" :href="ticketsUrl" target="_blank">Tickets</a>
+      <a
+        v-else-if="match.article_url"
+        class="article-link"
+        :href="match.article_url"
+        target="_blank"
+        >Résumé</a
+      >
     </div>
     <div class="score">
       <template v-if="hasPlayed">
@@ -120,10 +123,6 @@ li {
   .spacer {
     flex-grow: 1;
   }
-
-  .tickets {
-    text-align: center;
-  }
 }
 
 .score {
@@ -154,5 +153,9 @@ li {
 
 .winner {
   font-weight: 900;
+}
+
+.article-link {
+  color: black;
 }
 </style>
