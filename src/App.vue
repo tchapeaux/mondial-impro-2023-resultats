@@ -65,8 +65,8 @@ function closeScoreHint() {
         <ul class="small">
           <li>0 : perdu dans le temps règlementaire</li>
           <li>1 : perdu après une impro supplémentaire</li>
-          <li>3 : gagné après une impro supplémentaire</li>
-          <li>4 : gagné dans le temps règlementaire</li>
+          <li>2 : gagné après une impro supplémentaire</li>
+          <li>3 : gagné dans le temps règlementaire</li>
         </ul>
         <button @click="closeScoreHint">Fermer</button>
       </div>
