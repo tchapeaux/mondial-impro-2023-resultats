@@ -36,7 +36,9 @@
       "date": "19/10/2023",
       "place": "CC Uccle",
       "team_1": "BE",
-      "team_2": "LU"
+      "team_2": "LU",
+      "score_1": 10,
+      "score_2": 5
     },
     {
       "date": "20/10/2023",
