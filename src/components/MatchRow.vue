@@ -149,6 +149,7 @@ li {
 
   padding: 5px;
   border-radius: 50%;
+  border: 2px solid orangered;
 }
 
 .winner {

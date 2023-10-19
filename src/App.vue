@@ -45,7 +45,9 @@ function closeScoreHint() {
   </ul>
 
   <h2>Matchs de poule</h2>
-  <p v-if="RESULTS.matchs_pool.some((m) => m.overtime)" class="small">⏰ = impro supplémentaire</p>
+  <p v-if="RESULTS.matchs_pool.some((m) => m.overtime)" class="small overtime-info">
+    ⏰ = impro supplémentaire
+  </p>
   <ul class="match-list">
     <MatchRow
       v-for="match in RESULTS.matchs_pool"
@@ -61,10 +63,10 @@ function closeScoreHint() {
       <div class="content">
         <h3>Scores de match</h3>
         <ul class="small">
-          <li>0 = perdu dans le temps règlementaire</li>
-          <li>1 = perdu après une impro supplémentaire</li>
-          <li>3 = gagné après une impro supplémentaire</li>
-          <li>4 = gagné dans le temps règlementaire</li>
+          <li>0 : perdu dans le temps règlementaire</li>
+          <li>1 : perdu après une impro supplémentaire</li>
+          <li>3 : gagné après une impro supplémentaire</li>
+          <li>4 : gagné dans le temps règlementaire</li>
         </ul>
         <button @click="closeScoreHint">Fermer</button>
       </div>
@@ -130,6 +132,10 @@ h2 {
 .header-with-tooltip {
   display: flex;
   align-items: baseline;
+}
+
+.overtime-info {
+  margin: 5px 0;
 }
 
 .tooltip {
