@@ -39,7 +39,7 @@ function getMatchScores(match) {
   const winner = match.score_1 > match.score_2 ? match.team_1 : match.team_2
   const loser = match.score_1 > match.score_2 ? match.team_2 : match.team_1
 
-  return match.overtime ? { [winner]: 3, [loser]: 1 } : { [winner]: 4, [loser]: 0 }
+  return match.overtime ? { [winner]: 2, [loser]: 1 } : { [winner]: 3, [loser]: 0 }
 }
 
 const scoreTable = computed(() => {
