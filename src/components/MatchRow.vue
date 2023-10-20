@@ -15,7 +15,7 @@
         class="article-link"
         :href="match.article_url"
         target="_blank"
-        >Résumé</a
+        >Voir le résumé</a
       >
     </div>
     <div class="score">
