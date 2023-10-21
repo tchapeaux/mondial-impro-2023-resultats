@@ -41,7 +41,9 @@ function closeScoreHint() {
 
   <h2>Équipes</h2>
   <ul class="teams-list">
-    <TeamCard v-for="t in RESULTS.teams" :key="t.short" :team="t" />
+    <li v-for="t in RESULTS.teams" :key="t.short">
+      <TeamCard :team="t" />
+    </li>
   </ul>
 
   <h2>Matchs de poule</h2>
