@@ -17,7 +17,7 @@ a.card {
   align-items: center;
   gap: 10px;
 
-  padding: 5px 10px;
+  padding: 5px 5px;
   border: transparent 5px solid;
   border-radius: 25px;
   color: black;
