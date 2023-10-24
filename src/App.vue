@@ -97,7 +97,7 @@ function closeScoreHint() {
 .header-pic {
   position: absolute;
   width: 150px;
-  right: 20px;
+  right: 1rem;
 }
 
 h1.hero-title {
@@ -125,6 +125,8 @@ ul.match-list {
 h2 {
   line-height: 1.5;
   padding: 10px 0;
+  margin: 10px 0;
+  text-align: center;
 }
 
 .small {
@@ -134,6 +136,7 @@ h2 {
 .header-with-tooltip {
   display: flex;
   align-items: baseline;
+  justify-content: center;
 }
 
 .overtime-info {
@@ -205,6 +208,7 @@ dialog {
 .recap-table {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   align-items: flex-end;
 }
@@ -222,6 +226,7 @@ ul.teams-list {
 
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 15px;
 }
 
