@@ -149,6 +149,9 @@ h2 {
 }
 
 .tooltip {
+  position: relative;
+  top: -0.1rem;
+
   padding: 2px;
   margin: 2px;
   margin-left: 10px;
