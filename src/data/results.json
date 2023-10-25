@@ -104,7 +104,9 @@
       "date": "25/10/2023",
       "place": "Université de Namur",
       "team_1": "LU",
-      "team_2": "FR"
+      "team_2": "FR",
+      "score_1": 4,
+      "score_2": 10
     },
     {
       "date": "26/10/2023",
