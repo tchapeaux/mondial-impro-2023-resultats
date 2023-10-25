@@ -105,7 +105,7 @@ th:last-child {
 }
 
 .row-name {
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 @media (max-width: 600px) {

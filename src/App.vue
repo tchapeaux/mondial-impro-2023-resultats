@@ -123,7 +123,7 @@ ul.match-list {
 
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 5px;
+  row-gap: 10px;
   column-gap: 10px;
 }
 
