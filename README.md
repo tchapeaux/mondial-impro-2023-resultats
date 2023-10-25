@@ -4,13 +4,12 @@ Results front-end for an Improv festival.
 
 Data is encoded manually in a JSON file.
 
+Deployed with Vercel to https://mondial-impro-2023-resultats.vercel.app/
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
