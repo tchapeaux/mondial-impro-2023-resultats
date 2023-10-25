@@ -87,6 +87,11 @@ function closeScoreHint() {
   <footer class="footer-text">
     <p>Maintenu par Thomas Chapeaux</p>
     <p>
+      <a href="https://github.com/tchapeaux/mondial-impro-2023-resultats" target="_blank">
+        Code source en accès libre
+      </a>
+    </p>
+    <p>
       29e Mondial d'Impro organisé par <a href="https://www.fbia.be" target="_blank">la FBIA</a>
     </p>
     <p>Illustrations par Dall·E 3</p>
