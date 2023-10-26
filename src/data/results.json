@@ -113,7 +113,9 @@
       "date": "26/10/2023",
       "place": "La Sucrerie",
       "team_1": "BE",
-      "team_2": "QE"
+      "team_2": "QE",
+      "score_1": 7,
+      "score_2": 8
     },
     {
       "date": "27/10/2023",
