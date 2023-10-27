@@ -6,9 +6,15 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import TeamFlag from './TeamFlag.vue'
 
-defineProps({ team: { type: Object, required: true } })
+const props = defineProps({
+  team: { type: Object, required: true },
+  alwaysShowName: { type: Boolean, default: false }
+})
+
+const responsiveNameCssDisplay = computed(() => (props.alwaysShowName ? 'initial' : 'none'))
 </script>
 
 <style scoped>
@@ -36,7 +42,7 @@ a.card:hover {
 
 @media (max-width: 500px) {
   .team-name {
-    display: none;
+    display: v-bind(responsiveNameCssDisplay);
   }
 }
 </style>

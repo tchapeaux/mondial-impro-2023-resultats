@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from 'vue'
+
 import RESULTS from './data/results.json'
 import MatchRow from './components/MatchRow.vue'
 import RecapTable from './components/RecapTable.vue'
@@ -20,6 +22,17 @@ if (new URLSearchParams(window.location.search).get('fakeData')) {
     m.overtime = Math.random() > 0.6
   })
 }
+
+const bigWinner = computed(() => {
+  if (!RESULTS.finale.score_1) {
+    return null
+  }
+
+  const winnerShort =
+    RESULTS.finale.score_1 > RESULTS.finale.score_2 ? RESULTS.finale.team_1 : RESULTS.finale.team_2
+
+  return RESULTS.teams.find((t) => t.short === winnerShort)
+})
 
 function openScoreHint() {
   document.querySelector('#score-explications').showModal()
@@ -81,6 +94,11 @@ function closeScoreHint() {
   <div class="finale-section">
     <h2>🏆 Finale 🏆</h2>
     <MatchRow :match="RESULTS.finale" />
+
+    <template v-if="bigWinner">
+      <p class="winning-team">L'équipe gagnante du 29e Mondial d'Impro et du José</p>
+      <TeamCard :always-show-name="true" :team="bigWinner" />
+    </template>
   </div>
 
   <img class="footer-img" aria-role="none" src="/dall-e-3-illustration-control-room.jpeg" />
@@ -251,10 +269,17 @@ ul.teams-list {
 }
 
 .finale-section {
+  width: 310px;
+
   align-self: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.finale-section .winning-team {
+  margin: 15px 0;
+  text-align: center;
 }
 
 .footer-img {

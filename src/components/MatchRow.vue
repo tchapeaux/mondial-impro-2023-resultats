@@ -50,9 +50,9 @@
 </template>
 
 <script setup>
-import TeamFlag from './TeamFlag.vue'
-
 import { computed } from 'vue'
+
+import TeamFlag from './TeamFlag.vue'
 import RESULTS from '../data/results.json'
 
 const props = defineProps({
@@ -111,6 +111,7 @@ li {
   gap: 5px;
   background-color: var(--dark-secondary);
   border-radius: 25px;
+  width: 100%;
 }
 
 .header {
