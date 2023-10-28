@@ -131,6 +131,8 @@
     "date": "28/10/2023",
     "place": "Université Libre de Bruxelles",
     "team_1": "QE",
-    "team_2": "BE"
+    "team_2": "BE",
+    "score_1": 8,
+    "score_2": 7
   }
 }
