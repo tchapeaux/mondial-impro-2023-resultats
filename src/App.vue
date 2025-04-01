@@ -49,7 +49,7 @@ function closeScoreHint() {
   <p class="hero-sub">du 29e Mondial d'Impro</p>
 
   <p>
-    <a href="https://www.fbia.be/mondial-2023/" target="_blank">Plus d'infos</a>
+    <a href="https://web.archive.org/web/20240415152616/https://www.fbia.be/mondial-2023/" target="_blank">Plus d'infos</a>
   </p>
 
   <h2>Équipes</h2>

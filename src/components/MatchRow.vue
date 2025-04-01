@@ -9,7 +9,6 @@
       <div>{{ match.date.replace('/2023', '') }}</div>
       <div>{{ match.place }}</div>
       <div class="spacer" />
-      <a v-if="!hasPlayed" :href="ticketsUrl" target="_blank">Tickets</a>
       <a
         v-else-if="match.article_url"
         class="article-link"
@@ -83,23 +82,6 @@ const loserColor = computed(() => {
   }
 
   return RESULTS.teams.find((t) => t.short === loserShort.value).color
-})
-
-const ticketsUrl = computed(() => {
-  if (props.match.date.includes('28')) {
-    // Finale
-    return 'https://www.fbia.be/billetterie/la-finale/'
-  }
-
-  if (props.match.date.includes('27')) {
-    // Special case for some reason
-    return 'https://www.fbia.be/billetterie/514/'
-  }
-
-  const team1Name = RESULTS.teams.find((t) => t.short === props.match.team_1).name.replace('é', 'e')
-  const team2Name = RESULTS.teams.find((t) => t.short === props.match.team_2).name.replace('é', 'e')
-
-  return `https://www.fbia.be/billeterie/${team1Name.toLowerCase()}-vs-${team2Name.toLocaleLowerCase()}/`
 })
 </script>
 
