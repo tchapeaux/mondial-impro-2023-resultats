@@ -10,7 +10,7 @@
       <div>{{ match.place }}</div>
       <div class="spacer" />
       <a
-        v-else-if="match.article_url"
+        v-if="match.article_url"
         class="article-link"
         :href="match.article_url"
         target="_blank"
